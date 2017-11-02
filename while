@@ -1,0 +1,17 @@
+#!/bin/bash
+
+read -p "Please enter what you wanna print: " print
+myvar=1
+
+while [ $myvar -le 10 ]
+do 
+	echo $myvar $print
+	myvar=$((  $myvar  + 1  ))
+	sleep 0.2
+done
+while [ $myvar -le 10 ]
+do 
+	echo $myvar $print
+	myvar=$((  $myvar  - 1  ))
+	sleep 0.2
+done

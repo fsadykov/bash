@@ -1,0 +1,37 @@
+#!/bin/bash
+nowip=$(netstat -an | awk '{print $5}' | grep -o "[0-9]\{1,3\}\.[0-9]\{1,3\}\.[0-9]\{1,3\}\.[0-9]\{1,3\}" | egrep -v "(`for i in \`ip addr | grep inet |grep eth0 | cut -d/ -f1 | awk '{print $2}'\`;do echo -n "$i|"| sed 's/\./\\\./g;';done`127\.|0\.0\.0)" | sort -n | uniq -c | sort -n)
+last=$(last | grep 192.168 | head)
+red=`tput setaf 1`
+green=`tput setaf 2`
+reset=`tput sgr0`
+
+
+read -p "${green}Do you wana se who connected your system now?: ${reset}" answer
+if [ $answer == "yes" ] 
+then
+	echo "This ip connected your system now: $nowip "
+elif [ $answer == "no" ]
+then 
+	echo ""
+	echo "Bue"
+	echo ""
+fi
+
+
+read -p  "${green}Do you wanna see last 10 connected ip in your system?: ${reset}" answer2
+
+
+if [ $answer2 == "yes" ]
+then
+	echo "${red}##########################################################################${reset}"
+	echo "################ This is last ten connected your system ips ##############"
+	echo "${red}##########################################################################${reset}"
+	echo "$last"
+	echo "${red}##########################################################################${reset}"
+elif [ $answer2 == "no" ]
+then
+	echo ""
+	echo "Thanks for your using my script Bye"
+	echo ""
+	exit
+fi

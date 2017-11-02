@@ -1,0 +1,39 @@
+#!/bin/bash
+cp /etc/sysconfig/network-scripts/ifcfg-eth0 /etc/sysconfig/network-scripts/ifcfg-eth0.backup
+ipnow=$(ifconfig eth0 | grep inet | awk -F: '{print $2 }' | awk '{print $1}')
+
+link=(/etc/sysconfig/network-scripts/ifcfg-eth0) 
+
+	checkip=$(grep IPADDR $link | awk -F= '{print $1}')
+        #grep dhcp $link
+        #read DHCP
+        #if [ $DHCP == "BOOTPROTO=dhcp" ]
+	#then
+	#	echo 
+		
+
+		chnatmask=$(grep NETMASK $link | awk -F= '{print $1}')
+sed 's/ONBOOT=no/ONBOOT=yes/g' -i $link
+sed 's/BOOTPROTO=dhcp/BOOTPROTO=static/g' -i $link
+
+if [ "$checkip" == "IPADDR" ] 
+then 
+	echo ====================================================
+	echo You have static ip  
+	echo ====================================================
+else 
+	echo ====================================================
+	echo =Your curent ip "(dchp)" $ipnow ====================  
+	echo ====================================================
+	read -p "Please enter your ip: " ipconf
+	echo ====================================================
+	read -p "Please enter your GATEWAY: " gateway
+	echo ====================================================
+	read -p "Please enter your DNS1: " dns
+	echo ====================================================
+	echo IPADDR=$ipconf >> $link
+	echo NETMASK=255.255.255.0 >> $link
+	echo GATEWAY=$gateway >> $link
+	echo DNS1=$dns >> $link
+	echo DNS2=8.8.8.8 >> $link
+fi

@@ -1,0 +1,21 @@
+#!/bin/bash
+#This is line gives collor for scipts (tput setaf 2 | green) (tput setaf 1 | red )
+red=`tput setaf 1`
+green=`tput setaf 2`
+reset=`tput sgr0`
+
+#This line asks user path 
+read -p "${green}Please enter location where is your folder :$reset" path
+
+#this line do ifconditions 
+if [ -d $path ]
+then
+	echo "$green#####################" 
+	echo "# Your folder exits #"
+	echo "#####################$reset" 
+else 
+	echo "$red############################" 
+	echo "# Your folder is not exist #"
+	echo "############################$reset" 
+fi
+# its done )) 

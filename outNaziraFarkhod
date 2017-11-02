@@ -1,0 +1,17 @@
+#!/bin/bash
+
+read -p "Please enter your name :" name 
+red=`tput setaf 1`
+green=`tput setaf 2`
+reset=`tput sgr0 `
+if [ $name == "Farkhod" ]
+then
+	echo "${green}Hello $name $reset"
+elif [ $name == "Nazira" ]
+then
+	echo "${red}Hello $name $reset"
+else 
+	echo "$name there is not in my list"
+fi
+
+

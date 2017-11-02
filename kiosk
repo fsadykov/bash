@@ -1,0 +1,42 @@
+#!/bin/bash
+
+echo " 1 - Fruits     $"10"" 
+echo " 2 - Vegetables $"5"" 
+echo " 3 - Babyfood   $"20"" 
+echo " 4 - Milk       $"5"" 
+num1=10
+num2=5
+num3=20
+num4=5
+read -p "Please chose all products you want to buy: " pl pl1 pl2 pl3 pl4 
+
+
+if [ "$pl" == 1 ]
+then
+	read -p "Please insert money: " money
+	total=$(($money - 10))
+	echo "********************************"
+	echo "Here is your total change $total"
+	echo "********************************"
+elif [ "$pl" == 2 ]
+then
+	read -p "Please insert money: " money
+	total=$(($money - 5))
+	echo "********************************"
+	echo "Here is your total change $total"
+	echo "********************************"
+elif [ "$pl" == 3 ]
+then
+	read -p "Please insert money: " money
+	total=$(($money - 20))
+	echo "********************************"
+	echo "Here is your total change $total"
+	echo "********************************"
+elif [ "$pl" == 4 ]
+then
+	read -p "Please insert money: " money
+	total=$(($money - 5))
+	echo "********************************"
+	echo "Here is your total change $total"
+	echo "********************************"
+fi
