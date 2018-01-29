@@ -6,7 +6,7 @@ green=`tput setaf 2`
 reset=`tput sgr0`
 
 
-read -p "${green}Do you wana se who connected your system now?: ${reset}" answer
+read -p "${green}Do you wanna see who connected your system now?: ${reset}" answer
 if [ $answer == "yes" ] 
 then
 	echo "This ip connected your system now: $nowip "
