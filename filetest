@@ -1,0 +1,28 @@
+#!/bin/bash
+#This is line gives collor for scipts (tput setaf 2 | green) (tput setaf 1 | red )
+red=`tput setaf 1`
+green=`tput setaf 2`
+reset=`tput sgr0`
+
+#This line asks user path 
+#read -p "${green}Please enter location where is your file :$reset" path
+
+#this line do ifconditions 
+if [ -f $1 ]
+then
+	echo "$green#####################" 
+	echo "# Your file exist #"
+	echo "#####################$reset" 
+	read -p "Do you want to open this file 'Yes' or 'NO' :" answer
+	if [ $answer == "yes" ]
+	then
+		vim $1 
+	else
+		echo ''
+	fi
+	
+else 
+	echo "$red##########################" 
+	echo "# File does not  exist #"
+	echo "##########################$reset"
+fi
