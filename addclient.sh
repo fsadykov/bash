@@ -10,7 +10,6 @@ echo ""
 echo -en "Go to the line 99 and add the following\n "
 echo ""
 echo -en "ansible    ALL=(ALL)     NOPASSWD:   ALL"
-
 echo ""
 echo ""
 echo ""
