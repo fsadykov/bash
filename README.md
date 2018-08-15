@@ -1,1 +1,1 @@
-# my_scripts
+BASH scripting 
