@@ -36,4 +36,4 @@ fi
 
 
 # this line will delete template files
-
+rm -rf template.sh
